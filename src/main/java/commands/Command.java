@@ -31,4 +31,8 @@ public class Command {
 
         this.notifications.addAll(domainNotificationList);
     }
+
+    public List<DomainNotification> getNotifications() {
+        return notifications;
+    }
 }
