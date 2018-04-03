@@ -1,0 +1,2 @@
+# DomainNotificationHelper
+Domain notification pattern
