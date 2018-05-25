@@ -53,9 +53,9 @@ public class Assert {
                 : null;
     }
 
-    public static DomainNotification areEquals(String text, String match, String key, String val)
+    public static DomainNotification areEquals(Object anObject1, Object anObject2, String key, String val)
     {
-        return (!(text == match))
+        return (!(anObject1 == anObject2))
                 ? new DomainNotification(key, val)
                 : null;
     }
