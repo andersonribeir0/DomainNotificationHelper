@@ -13,14 +13,16 @@ public class Command {
     }
 
     public boolean hasNotifications(){
-        return !notifications.isEmpty();
+        if(this.notifications == null) {
+            return false;
+        }
+        return !this.notifications.isEmpty();
     }
 
     public void addNotification(DomainNotification domainNotification) {
         if (domainNotification == null) {
             return;
         }
-
         this.notifications.add(domainNotification);
     }
 
@@ -28,11 +30,13 @@ public class Command {
         if (domainNotificationList == null){
             return;
         }
-
         this.notifications.addAll(domainNotificationList);
     }
 
     public List<DomainNotification> getNotifications() {
-        return notifications;
+        if(this.notifications == null) {
+            return new ArrayList<DomainNotification>();
+        }
+        return this.notifications;
     }
 }

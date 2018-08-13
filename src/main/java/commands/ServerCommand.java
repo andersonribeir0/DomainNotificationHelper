@@ -16,21 +16,29 @@ public class ServerCommand {
     }
 
     public ServerCommand(List<Command> commands){
-        this.commands = new ArrayList<Command>();
-        this.notifications = new ArrayList<DomainNotification>();
-        this.commands.addAll(commands);
-        for (Command command: commands ) {
-            if(command != null && command.hasNotifications()) {
-                this.notifications.addAll(command.getNotifications());
+        if(commands != null) {
+            this.commands = new ArrayList<Command>();
+            this.notifications = new ArrayList<DomainNotification>();
+            this.commands.addAll(commands);
+            for (Command command: commands ) {
+                if(command != null && command.hasNotifications()) {
+                    this.notifications.addAll(command.getNotifications());
+                }
             }
         }
     }
 
     public boolean hasNotifications(){
-        return this.notifications.toArray().length > 0;
+        if (this.notifications == null) {
+            return false;
+        }
+        return !this.notifications.isEmpty();
     }
 
     public List<DomainNotification> getNotifications() {
+        if(this.notifications == null) {
+            return new ArrayList<DomainNotification>();
+        }
         return this.notifications;
     }
 
@@ -38,7 +46,6 @@ public class ServerCommand {
         if (domainNotification == null) {
             return;
         }
-
         this.notifications.add(domainNotification);
     }
 
@@ -46,7 +53,6 @@ public class ServerCommand {
         if (domainNotificationList == null) {
             return;
         }
-
         this.notifications.addAll(domainNotificationList);
     }
 }
