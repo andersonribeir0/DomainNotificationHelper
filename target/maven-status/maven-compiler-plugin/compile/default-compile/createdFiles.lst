@@ -1,5 +1,4 @@
-RunTime.class
-commands\Command.class
-commands\ServerCommand.class
+commands\AbstractCommand.class
 notifications\DomainNotification.class
 assertions\Assert.class
+commands\AbstractServerCommand.class

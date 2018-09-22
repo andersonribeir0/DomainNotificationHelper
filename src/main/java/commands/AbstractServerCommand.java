@@ -5,27 +5,29 @@ import notifications.DomainNotification;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServerCommand {
+public abstract class AbstractServerCommand {
     private List<DomainNotification> notifications;
-    private List<Command> commands;
+    private List<AbstractCommand> commands;
 
-    public ServerCommand(Command command){
-        this.commands = new ArrayList<Command>();
+    public AbstractServerCommand(AbstractCommand command){
+        this.commands = new ArrayList<AbstractCommand>();
         this.commands.add(command);
         this.notifications = command.getNotifications();
+        validate();
     }
 
-    public ServerCommand(List<Command> commands){
+    public AbstractServerCommand(List<AbstractCommand> commands){
         if(commands != null) {
-            this.commands = new ArrayList<Command>();
+            this.commands = new ArrayList<AbstractCommand>();
             this.notifications = new ArrayList<DomainNotification>();
             this.commands.addAll(commands);
-            for (Command command: commands ) {
+            for (AbstractCommand command: commands ) {
                 if(command != null && command.hasNotifications()) {
                     this.notifications.addAll(command.getNotifications());
                 }
             }
         }
+        validate();
     }
 
     public boolean hasNotifications(){
@@ -55,4 +57,6 @@ public class ServerCommand {
         }
         this.notifications.addAll(domainNotificationList);
     }
+
+    public abstract void validate();
 }

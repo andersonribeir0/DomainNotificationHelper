@@ -5,11 +5,12 @@ import notifications.DomainNotification;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Command {
+public abstract class AbstractCommand {
     private List<DomainNotification> notifications;
 
-    public Command(){
+    public AbstractCommand() {
         this.notifications = new ArrayList<DomainNotification>();
+        validate();
     }
 
     public boolean hasNotifications(){
@@ -39,4 +40,6 @@ public class Command {
         }
         return this.notifications;
     }
+
+    protected abstract void validate();
 }

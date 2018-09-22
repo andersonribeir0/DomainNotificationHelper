@@ -3,6 +3,8 @@ package commands;
 import notifications.DomainNotification;
 import org.junit.Assert;
 import org.junit.Test;
+import shared.Command;
+import shared.ServerCommand;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,26 +12,26 @@ import java.util.List;
 public class ServerCommandTest {
 
     public List<DomainNotification> notifications = new ArrayList<DomainNotification>();
-    public List<Command> commands = new ArrayList<Command>();
+    public List<AbstractCommand> commands = new ArrayList<AbstractCommand>();
 
     @Test
     public void should_has_notification_if_any_of_commands_has_notification(){
-        Command commandWithNotifications = new Command();
+        AbstractCommand commandWithNotifications = new Command();
         commandWithNotifications.addNotification(new DomainNotification());
 
-        Command commandWithoutNotifications = new Command();
+        AbstractCommand commandWithoutNotifications = new Command();
 
         commands.add(commandWithNotifications);
         commands.add(commandWithoutNotifications);
 
-        ServerCommand serverCommand = new ServerCommand(commands);
+        AbstractServerCommand serverCommand = new ServerCommand(commands);
 
         Assert.assertTrue(serverCommand.hasNotifications());
     }
 
     @Test
     public void should_has_all_commands_notifications() {
-        Command commandWithNotifications = new Command();
+        AbstractCommand commandWithNotifications = new Command();
         commandWithNotifications.addNotification(new DomainNotification());
 
         Command commandWithNotifications2 = new Command();
@@ -41,8 +43,10 @@ public class ServerCommandTest {
         commands.add(commandWithNotifications2);
         commands.add(commandWithoutNotifications);
 
-        ServerCommand serverCommand = new ServerCommand(commands);
+        AbstractServerCommand serverCommand = new ServerCommand(commands);
 
         Assert.assertEquals(2, serverCommand.getNotifications().toArray().length);
     }
+
+
 }

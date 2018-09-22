@@ -1,8 +1,9 @@
 package assertions;
 
-import commands.Command;
+import commands.AbstractCommand;
 import notifications.DomainNotification;
 import org.junit.Test;
+import shared.Command;
 
 public class AssertTest {
 
@@ -24,8 +25,8 @@ public class AssertTest {
 
     @Test
     public void should_return_notification_if_value_is_empty_or_whitespace() {
-        
-        Command command = new Command();
+
+        AbstractCommand command = new Command();
         command.addNotification(Assert.notEmpty(null, "NotificationKey", "NotificationValue"));
         command.addNotification(Assert.notEmpty(" ", "NotificationKey", "NotificationValue"));
         command.addNotification(Assert.notEmpty("   ", "NotificationKey", "NotificationValue"));
