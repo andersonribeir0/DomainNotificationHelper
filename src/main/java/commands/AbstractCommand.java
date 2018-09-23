@@ -10,7 +10,6 @@ public abstract class AbstractCommand {
 
     public AbstractCommand() {
         this.notifications = new ArrayList<DomainNotification>();
-        validate();
     }
 
     public boolean hasNotifications(){

@@ -13,7 +13,6 @@ public abstract class AbstractServerCommand {
         this.commands = new ArrayList<AbstractCommand>();
         this.commands.add(command);
         this.notifications = command.getNotifications();
-        validate();
     }
 
     public AbstractServerCommand(List<AbstractCommand> commands){
