@@ -26,7 +26,7 @@ public abstract class AbstractCommand {
         this.notifications.add(domainNotification);
     }
 
-    public void AddNotifications(List<DomainNotification> domainNotificationList) {
+    public void addNotifications(List<DomainNotification> domainNotificationList) {
         if (domainNotificationList == null){
             return;
         }
