@@ -26,7 +26,6 @@ public abstract class AbstractServerCommand {
                 }
             }
         }
-        validate();
     }
 
     public boolean hasNotifications(){
@@ -57,5 +56,5 @@ public abstract class AbstractServerCommand {
         this.notifications.addAll(domainNotificationList);
     }
 
-    public abstract void validate();
+    protected abstract boolean isValid();
 }

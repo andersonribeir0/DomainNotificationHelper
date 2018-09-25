@@ -5,8 +5,9 @@ import notifications.DomainNotification;
 
 public class FakeInvalidCommand extends AbstractCommand {
 
-    protected void validate() {
+    protected boolean isValid() {
         this.addNotification(new DomainNotification(this.getClass().getSimpleName(),"This is a domain notification."));
+        return !this.hasNotifications();
     }
 
 }

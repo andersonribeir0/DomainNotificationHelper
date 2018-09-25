@@ -15,7 +15,8 @@ public class Command extends AbstractCommand {
     }
 
     @Override
-    public void validate() {
+    public boolean isValid() {
         addNotification(Assert.isNotNull(this.name, this.getClass().getSimpleName(), "Não pode ser nulo."));
+        return !this.hasNotifications();
     }
 }

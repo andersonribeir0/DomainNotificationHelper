@@ -40,5 +40,5 @@ public abstract class AbstractCommand {
         return this.notifications;
     }
 
-    protected abstract void validate();
+    protected abstract boolean isValid();
 }
