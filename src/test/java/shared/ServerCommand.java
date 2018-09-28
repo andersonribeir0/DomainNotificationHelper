@@ -15,7 +15,5 @@ public class ServerCommand extends AbstractServerCommand {
         super(commands);
     }
 
-    public boolean isValid() {
-        return !this.hasNotifications();
-    }
+    public void performValidations() { }
 }

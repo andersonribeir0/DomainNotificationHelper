@@ -12,6 +12,8 @@ public abstract class AbstractCommand {
         this.notifications = new ArrayList<DomainNotification>();
     }
 
+    protected abstract void performValidations();
+
     public boolean hasNotifications(){
         if(this.notifications == null) {
             return false;
@@ -40,5 +42,14 @@ public abstract class AbstractCommand {
         return this.notifications;
     }
 
-    protected abstract boolean isValid();
+    public boolean isValid() {
+        return !hasNotifications();
+    }
+
+    public boolean isInvalid() {
+        return hasNotifications();
+    }
+
+
+
 }

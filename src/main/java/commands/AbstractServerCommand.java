@@ -28,6 +28,8 @@ public abstract class AbstractServerCommand {
         }
     }
 
+    protected abstract void performValidations();
+
     public boolean hasNotifications(){
         if (this.notifications == null) {
             return false;
@@ -56,5 +58,12 @@ public abstract class AbstractServerCommand {
         this.notifications.addAll(domainNotificationList);
     }
 
-    protected abstract boolean isValid();
+    public boolean isValid() {
+        return !hasNotifications();
+    }
+
+    public boolean isInvalid() {
+        return hasNotifications();
+    }
+
 }

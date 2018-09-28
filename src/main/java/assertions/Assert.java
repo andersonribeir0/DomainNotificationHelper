@@ -74,6 +74,13 @@ public class Assert {
                 : null;
     }
 
+    public static DomainNotification isGreaterOrEqualThan(double value1, double value2, String key, String val)
+    {
+        return (!(value1 >= value2))
+                ? new DomainNotification(key, val)
+                : null;
+    }
+
     public static DomainNotification isGreaterOrEqualThan(int value1, int value2, String key, String val)
     {
         return (!(value1 >= value2))

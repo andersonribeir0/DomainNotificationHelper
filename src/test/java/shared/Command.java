@@ -8,6 +8,7 @@ public class Command extends AbstractCommand {
 
     public Command(String name) {
         this.name = name;
+        this.performValidations();
     }
 
     public Command() {
@@ -15,8 +16,7 @@ public class Command extends AbstractCommand {
     }
 
     @Override
-    public boolean isValid() {
+    protected final void performValidations() {
         addNotification(Assert.isNotNull(this.name, this.getClass().getSimpleName(), "Não pode ser nulo."));
-        return !this.hasNotifications();
     }
 }

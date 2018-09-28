@@ -26,7 +26,7 @@ public class AssertTest {
     @Test
     public void should_return_notification_if_value_is_empty_or_whitespace() {
 
-        AbstractCommand command = new Command();
+        AbstractCommand command = new Command("test");
         command.addNotification(Assert.notEmpty(null, "NotificationKey", "NotificationValue"));
         command.addNotification(Assert.notEmpty(" ", "NotificationKey", "NotificationValue"));
         command.addNotification(Assert.notEmpty("   ", "NotificationKey", "NotificationValue"));
@@ -69,7 +69,7 @@ public class AssertTest {
     @Test
     public void should_return_notification_if_is_not_equal() {
        
-        Command command = new Command();
+        Command command = new Command("test");
         DomainNotification domainNotification = Assert.areEquals("test1","test2", "NotificationKey", "NotificationValue");
         command.addNotification(domainNotification);
 
@@ -79,7 +79,7 @@ public class AssertTest {
     @Test
     public void should_not_return_notification_if_is_equal() {
         
-        Command command = new Command();
+        Command command = new Command("test");
         DomainNotification domainNotification = Assert.areEquals("test","test", "NotificationKey", "NotificationValue");
         command.addNotification(domainNotification);
 

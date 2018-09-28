@@ -32,10 +32,8 @@ public class ServerCommandTest {
     @Test
     public void should_has_all_commands_notifications() {
         AbstractCommand commandWithNotifications = new Command();
-        commandWithNotifications.addNotification(new DomainNotification());
 
         Command commandWithNotifications2 = new Command();
-        commandWithNotifications2.addNotification(new DomainNotification());
 
         Command commandWithoutNotifications = new Command();
 
@@ -45,7 +43,7 @@ public class ServerCommandTest {
 
         AbstractServerCommand serverCommand = new ServerCommand(commands);
 
-        Assert.assertEquals(2, serverCommand.getNotifications().toArray().length);
+        Assert.assertEquals(3, serverCommand.getNotifications().toArray().length);
     }
 
 
