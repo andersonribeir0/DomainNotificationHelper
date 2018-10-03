@@ -28,8 +28,6 @@ public abstract class AbstractServerCommand {
         }
     }
 
-    protected abstract void performValidations();
-
     public boolean hasNotifications(){
         if (this.notifications == null) {
             return false;
