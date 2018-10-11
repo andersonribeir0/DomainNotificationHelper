@@ -12,7 +12,7 @@ public abstract class AbstractCommand {
         this.notifications = new ArrayList<DomainNotification>();
     }
 
-    protected abstract void performValidations();
+    protected abstract AbstractCommand performValidations();
 
     public boolean hasNotifications(){
         if(this.notifications == null) {
