@@ -1,26 +1,26 @@
-package commands;
+package notifiables;
 
 import notifications.DomainNotification;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractServerCommand {
+public abstract class AbstractServerNotifiable {
     private List<DomainNotification> notifications;
-    private List<AbstractCommand> commands;
+    private List<AbstractNotifiable> commands;
 
-    public AbstractServerCommand(AbstractCommand command){
-        this.commands = new ArrayList<AbstractCommand>();
+    public AbstractServerNotifiable(AbstractNotifiable command){
+        this.commands = new ArrayList<AbstractNotifiable>();
         this.commands.add(command);
         this.notifications = command.getNotifications();
     }
 
-    public AbstractServerCommand(List<AbstractCommand> commands){
+    public AbstractServerNotifiable(List<AbstractNotifiable> commands){
         if(commands != null) {
-            this.commands = new ArrayList<AbstractCommand>();
+            this.commands = new ArrayList<AbstractNotifiable>();
             this.notifications = new ArrayList<DomainNotification>();
             this.commands.addAll(commands);
-            for (AbstractCommand command: commands ) {
+            for (AbstractNotifiable command: commands ) {
                 if(command != null && command.hasNotifications()) {
                     this.notifications.addAll(command.getNotifications());
                 }

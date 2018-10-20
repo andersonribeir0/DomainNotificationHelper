@@ -1,9 +1,9 @@
 package shared;
 
-import commands.AbstractCommand;
+import notifiables.AbstractNotifiable;
 import notifications.DomainNotification;
 
-public class FakeInvalidCommand extends AbstractCommand {
+public class FakeInvalidCommand extends AbstractNotifiable {
 
     @Override
     protected FakeInvalidCommand performValidations() {

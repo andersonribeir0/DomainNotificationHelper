@@ -1,9 +1,9 @@
 package shared;
 
 import assertions.Assert;
-import commands.AbstractCommand;
+import notifiables.AbstractNotifiable;
 
-public class Command extends AbstractCommand {
+public class Command extends AbstractNotifiable {
     private final String name;
 
     public Command(String name) {

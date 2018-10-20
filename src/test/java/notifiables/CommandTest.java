@@ -1,4 +1,4 @@
-package commands;
+package notifiables;
 
 import org.junit.Assert;
 import org.junit.Test;

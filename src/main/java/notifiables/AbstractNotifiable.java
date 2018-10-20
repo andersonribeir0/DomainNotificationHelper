@@ -1,18 +1,18 @@
-package commands;
+package notifiables;
 
 import notifications.DomainNotification;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractCommand {
+public abstract class AbstractNotifiable {
     private List<DomainNotification> notifications;
 
-    public AbstractCommand() {
+    public AbstractNotifiable() {
         this.notifications = new ArrayList<DomainNotification>();
     }
 
-    protected abstract AbstractCommand performValidations();
+    protected abstract AbstractNotifiable performValidations();
 
     public boolean hasNotifications(){
         if(this.notifications == null) {
